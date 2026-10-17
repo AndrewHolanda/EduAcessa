@@ -57,3 +57,113 @@ Considering the lack of reliable internet access as a major barrier, the platfor
 - **Offline Learning:** Students can study and complete exercises at home entirely without an internet connection.
 
 - **Automatic Updates:** Once connectivity is restored, the application automatically synchronizes student progress with the cloud in the background.
+
+---
+
+## 7. Getting Started (Running the Project)
+
+### Prerequisites
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) (LTS version) — npm comes with it
+- [Expo Go](https://expo.dev/go) on your phone (optional, to test on a real device)
+
+### Installation
+
+```bash
+git clone https://github.com/AndrewHolanda/EduAcessa.git
+cd EduAcessa
+git checkout development
+cd my-app
+npm install
+```
+
+### Running
+
+```bash
+npm start
+```
+
+Then:
+
+- Scan the QR code with **Expo Go** to open the app on your phone
+- Press `a` to open on an Android emulator
+- Press `w` to open in the browser (Expo may ask to install extra web dependencies — accept)
+
+> Your phone and computer must be on the same Wi-Fi network for the QR code to work.
+
+---
+
+## 8. Git Workflow
+
+### Branches
+
+| Branch | Purpose |
+|---|---|
+| `main` | Stable version. Only receives merges from `development`. |
+| `development` | Integration branch. All work is merged here first. |
+| `feature/<name>` | New features (e.g. `feature/login-screen`) |
+| `fix/<name>` | Bug fixes |
+| `docs/<name>` | Documentation changes |
+
+**Never commit directly to `main` or `development`.**
+
+### Step by step
+
+1. Update your local `development` before starting:
+
+```bash
+   git checkout development
+   git pull
+```
+
+2. Create your branch from `development`:
+
+```bash
+   git checkout -b feature/your-feature-name
+```
+
+3. Work and commit in small steps:
+
+```bash
+   git add .
+   git commit -m "feat: short description of the change"
+```
+
+4. Push your branch:
+
+```bash
+   git push -u origin feature/your-feature-name
+```
+
+5. On GitHub, open a **Pull Request** from your branch into **`development`** (not `main`).
+
+6. The repository maintainer reviews and merges the Pull Request.
+
+### Commit Messages
+
+We follow the [Conventional Commits](https://www.conventionalcommits.org/) pattern:
+
+| Prefix | When to use |
+|---|---|
+| `feat:` | New feature |
+| `fix:` | Bug fix |
+| `docs:` | Documentation only |
+| `style:` | Formatting or styling, no logic change |
+| `refactor:` | Code change that is neither a fix nor a feature |
+| `chore:` | Configuration, dependencies, maintenance |
+
+Example: `feat: add login screen layout`
+
+### Keeping Your Branch Up to Date
+
+If `development` received new changes while you were working:
+
+```bash
+git checkout development
+git pull
+git checkout feature/your-feature-name
+git merge development
+```
+
+If a conflict appears, resolve it before pushing. When in doubt, ask the team.
