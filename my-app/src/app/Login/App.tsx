@@ -45,12 +45,17 @@ export default function Login() {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
-      <StatusBar
-        style={Platform.OS === 'android' ? 'dark' : 'auto'}
-        backgroundColor='#F5F8FF'
-      />
+  <SafeAreaView
+    style={styles.safeArea}
+    edges={['top', 'bottom']}
+  >
+    <StatusBar
+      style={Platform.OS === 'android' ? 'dark' : 'auto'}
+    />
 
+    {/* Restante do conteúdo da tela */}
+  </SafeAreaView>
+);
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
