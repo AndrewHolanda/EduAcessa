@@ -10,7 +10,7 @@ import {
   Alert,
   StatusBar as RNStatusBar,
 } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './style';
 
@@ -45,17 +45,9 @@ export default function Login() {
   };
 
   return (
-  <SafeAreaView
-    style={styles.safeArea}
-    edges={['top', 'bottom']}
-  >
-    <StatusBar
-      style={Platform.OS === 'android' ? 'dark' : 'auto'}
-    />
+    <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
+      <RNStatusBar backgroundColor='#F5F8FF' barStyle='dark-content' />
 
-    {/* Restante do conteúdo da tela */}
-  </SafeAreaView>
-);
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
