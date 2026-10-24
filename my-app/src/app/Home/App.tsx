@@ -9,8 +9,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { styles, COLORS } from './style';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-type TabKey = 'inicio' | 'aulas' | 'monitores' | 'atividades' | 'perfil';
+import BottomNavigation, { TabKey } from '../../components/BottomNavigation';
 
 const schools = [
   'EE Senador João Bosco',
@@ -326,26 +325,6 @@ export default function Home() {
     );
   };
 
-  const tabs: {
-    key: TabKey;
-    label: string;
-    icon: keyof typeof Ionicons.glyphMap;
-  }[] = [
-    { key: 'inicio', label: 'Início', icon: 'home-outline' },
-    { key: 'aulas', label: 'Aulas', icon: 'book-outline' },
-    {
-      key: 'monitores',
-      label: 'Monitores',
-      icon: 'people-outline',
-    },
-    {
-      key: 'atividades',
-      label: 'Atividades',
-      icon: 'clipboard-outline',
-    },
-    { key: 'perfil', label: 'Perfil', icon: 'person-outline' },
-  ];
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle='light-content' backgroundColor={COLORS.blue} />
@@ -359,32 +338,7 @@ export default function Home() {
           {activeTab === 'inicio' ? renderHome() : renderOtherTab()}
         </ScrollView>
 
-        <View style={styles.bottomNav}>
-          {tabs.map((tab) => {
-            const selected = activeTab === tab.key;
-
-            return (
-              <TouchableOpacity
-                key={tab.key}
-                style={styles.navItem}
-                onPress={() => setActiveTab(tab.key)}
-                accessibilityRole='button'
-                accessibilityState={{ selected }}
-              >
-                <Ionicons
-                  name={tab.icon}
-                  size={22}
-                  color={selected ? COLORS.blue : COLORS.muted}
-                />
-                <Text
-                  style={[styles.navLabel, selected && styles.navLabelSelected]}
-                >
-                  {tab.label}
-                </Text>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
+        <BottomNavigation activeTab={activeTab} onTabPress={setActiveTab} />
       </View>
     </SafeAreaView>
   );
