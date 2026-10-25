@@ -1,3 +1,5 @@
+import ActivitiesScreen from './src/app/Activities/App';
+import ActivityDetails from './src/app/ActivityDetails/App';
 import EditProfile from './src/app/EditProfile/App';
 import Home from './src/app/Home/App';
 import Lessons from './src/app/Lessons/App';
@@ -8,5 +10,5 @@ import Settings from './src/app/Settings/App';
 import MonitorsScreen from './src/app/Teachers/App';
 
 export default function App() {
-  return <PublicProfileScreen />;
+  return <Settings />;
 }
