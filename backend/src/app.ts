@@ -12,7 +12,7 @@ app.use('/api', routes);
 
 // Any route that does not exist
 app.use((_req, res) => {
-  res.status(404).json({ error: 'Route not found' });
+  res.status(404).json({ error: 'Rota não encontrada' });
 });
 
 app.use(errorHandler);
